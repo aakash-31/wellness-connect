@@ -2,7 +2,7 @@
 
 A full-stack MERN mental wellness platform where users can explore therapy resources, share in an anonymous community, maintain a private journal, and practice interactive mindfulness exercises.
 
-> **Live Demo:** _[Add your deployed URL here]_  
+> **Live Demo:** https://wellness-connect-topaz.vercel.app/
 > **Built as a portfolio project** — fully functional, production-ready architecture.
 
 ---
