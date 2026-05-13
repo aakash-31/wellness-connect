@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Editorial Sanctuary | Home</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-highest": "#e1e3dd",
+                    "tertiary-dim": "#5f5142",
+                    "on-tertiary-container": "#635445",
+                    "error-dim": "#67040d",
+                    "secondary-fixed-dim": "#c3d8dc",
+                    "on-tertiary-fixed-variant": "#6d5e4f",
+                    "secondary-fixed": "#d1e6eb",
+                    "on-tertiary": "#fff7f3",
+                    "surface": "#faf9f5",
+                    "on-secondary-container": "#415559",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container": "#eeeee9",
+                    "primary-fixed-dim": "#b1ddd5",
+                    "on-primary-container": "#2f5953",
+                    "inverse-on-surface": "#9d9d9a",
+                    "inverse-primary": "#cdfaf1",
+                    "on-background": "#30332f",
+                    "on-error-container": "#6e0a12",
+                    "tertiary": "#6c5c4d",
+                    "outline-variant": "#b0b3ad",
+                    "surface-container-high": "#e8e9e3",
+                    "on-primary": "#e2fff9",
+                    "on-secondary-fixed-variant": "#4b5f63",
+                    "surface-tint": "#3d6660",
+                    "outline": "#797b76",
+                    "on-primary-fixed-variant": "#39635c",
+                    "surface-bright": "#faf9f5",
+                    "secondary-container": "#d1e6eb",
+                    "background": "#faf9f5",
+                    "secondary": "#4e6266",
+                    "on-surface-variant": "#5d605b",
+                    "tertiary-container": "#fde7d3",
+                    "surface-variant": "#e1e3dd",
+                    "on-secondary-fixed": "#2f4346",
+                    "primary-fixed": "#bfebe3",
+                    "primary": "#3d6660",
+                    "on-error": "#fff7f6",
+                    "secondary-dim": "#43565a",
+                    "primary-dim": "#315a54",
+                    "on-tertiary-fixed": "#504234",
+                    "on-secondary": "#ecfcff",
+                    "tertiary-fixed": "#fde7d3",
+                    "primary-container": "#bfebe3",
+                    "on-surface": "#30332f",
+                    "on-primary-fixed": "#1b4640",
+                    "surface-dim": "#d9dbd4",
+                    "error-container": "#fa746f",
+                    "inverse-surface": "#0d0f0d",
+                    "error": "#a83836",
+                    "tertiary-fixed-dim": "#eed9c6",
+                    "surface-container-low": "#f4f4ef"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Plus Jakarta Sans"],
+                    "label": ["Plus Jakarta Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-surface antialiased overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-3 bg-[#faf9f5]/80 dark:bg-[#30332f]/80 backdrop-blur-xl rounded-full mt-4 mx-auto max-w-5xl shadow-[0_10px_40px_rgba(48,51,47,0.06)] font-plus-jakarta text-sm tracking-tight">
+<div class="text-xl font-bold text-[#3d6660] dark:text-[#e2fff9] tracking-tighter">Editorial Sanctuary</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-[#3d6660] dark:text-[#e2fff9] font-semibold border-b-2 border-[#3d6660] hover:text-[#3d6660] transition-colors duration-300 scale-95 active:scale-90 transition-transform" href="#">Sanctuary</a>
+<a class="text-[#30332f]/60 dark:text-[#faf9f5]/60 hover:text-[#3d6660] transition-colors duration-300 scale-95 active:scale-90 transition-transform" href="#">Practice</a>
+<a class="text-[#30332f]/60 dark:text-[#faf9f5]/60 hover:text-[#3d6660] transition-colors duration-300 scale-95 active:scale-90 transition-transform" href="#">Journal</a>
+<a class="text-[#30332f]/60 dark:text-[#faf9f5]/60 hover:text-[#3d6660] transition-colors duration-300 scale-95 active:scale-90 transition-transform" href="#">Community</a>
+<a class="text-[#30332f]/60 dark:text-[#faf9f5]/60 hover:text-[#3d6660] transition-colors duration-300 scale-95 active:scale-90 transition-transform" href="#">Games</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-[#3d6660] dark:text-[#e2fff9] scale-95 active:scale-90 transition-transform" data-icon="account_circle">account_circle</button>
+</div>
+</header>
+<!-- SideNavBar (Moved to Right Side) -->
+<aside class="fixed right-0 top-0 h-full flex flex-col p-6 z-40 bg-[#f4f4ef] dark:bg-[#252824] text-[#3d6660] dark:text-[#e2fff9] font-plus-jakarta text-body-lg h-screen w-72 rounded-l-3xl shadow-[-10px_0_40px_rgba(48,51,47,0.06)]">
+<div class="mb-12 flex flex-col gap-2 pt-20">
+<div class="flex items-center gap-4">
+<img alt="User Profile Avatar" class="w-12 h-12 rounded-full object-cover" data-alt="close-up portrait of a woman with serene expression in soft daylight with botanical elements in background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBctwMJeKQ8K0hptdz21b1-HsiuJ6WN_DMPjJomzBL_viPY2lHZrHJlOk-1VBQr4Vfj7Z1aPV7xAUGdx2dM8Tk_-P1dhgJ2AceQ_nIsO81_5CUCKeyKFnFcfoD_H7LQSjhcPtc7aXlFuxH7cFT27h6ZmZvwVkcVF-uiX6sH70qNlo_l7qV2ZTG-z4otZfqQ6kGszqqVs5zNpRBTV1pyQHK4hoGp8Yz4z9aYuVh1-REJ6K5RxfTDAeo3a3DRkDDBsHzj2A0DK7_uiRKb"/>
+<div>
+<h2 class="text-lg font-semibold text-[#3d6660]">Welcome back</h2>
+<p class="text-xs text-[#30332f]/70 dark:text-[#faf9f5]/70">Your sanctuary awaits</p>
+</div>
+</div>
+</div>
+<nav class="flex flex-col gap-2 h-full">
+<a class="flex items-center gap-4 p-3 ease-in-out duration-200 bg-[#ffffff] dark:bg-[#30332f] text-[#3d6660] rounded-xl font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="person_outline">person_outline</span>
+<span>Account Details</span>
+</a>
+<a class="flex items-center gap-4 p-3 ease-in-out duration-200 text-[#30332f]/70 dark:text-[#faf9f5]/70 hover:bg-[#eeeee9] dark:hover:bg-[#30332f]/50 rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-4 p-3 ease-in-out duration-200 text-[#30332f]/70 dark:text-[#faf9f5]/70 hover:bg-[#eeeee9] dark:hover:bg-[#30332f]/50 rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
+<span>Theme (Light/Dark)</span>
+</a>
+<div class="mt-auto pb-4">
+<a class="flex items-center gap-4 p-3 ease-in-out duration-200 text-[#30332f]/70 dark:text-[#faf9f5]/70 hover:bg-[#eeeee9] dark:hover:bg-[#30332f]/50 rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Log Out</span>
+</a>
+</div>
+</nav>
+</aside>
+<!-- Main Content Canvas -->
+<main class="pr-72 pt-24 min-h-screen">
+<section class="max-w-7xl mx-auto px-8 py-12">
+<!-- Hero Section: Intentional Asymmetry -->
+<div class="relative grid grid-cols-12 gap-8 items-center min-h-[716px]">
+<div class="col-span-12 lg:col-span-7 z-10">
+<span class="inline-block px-4 py-1.5 mb-6 text-sm font-medium tracking-wider uppercase bg-tertiary-container text-on-tertiary-container rounded-full">Editorial Wellness</span>
+<h1 class="text-6xl md:text-8xl font-extrabold text-on-surface tracking-tighter leading-[0.9] mb-8">
+                    Finding <br/> <span class="italic font-light text-primary">Peace</span> In The <br/> Modern Static.
+                </h1>
+<p class="text-body-lg text-on-surface-variant max-w-md leading-relaxed mb-10">
+                    A curated space for the soul. We combine intentional design with ancestral wisdom to create a digital sanctuary that breathes with you.
+                </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary text-on-primary px-8 py-4 rounded-full font-semibold shadow-lg shadow-primary/20 transition-all hover:scale-105 active:scale-95">Begin Your Journey</button>
+<button class="bg-secondary-container text-on-secondary-container px-8 py-4 rounded-full font-semibold transition-all hover:bg-secondary-fixed-dim">Explore Practices</button>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-5 relative">
+<div class="aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl relative">
+<img alt="Serene Nature Scene" class="w-full h-full object-cover" data-alt="minimalist composition of a single lily pad on still dark water with soft ripples and ethereal morning mist" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqhvGX_KwnuoYRq5YP9kCk6YwP6lU5Z48FNcoKc2Ceh2QgKL0UAHZ7eBru3j_O7f5_-kX3OWETZwZSVDe4xMa64R35gAXX-j0gdO0pMOLar5KpYNrNIo0r7IZ5S-f7xoGP54nGcxFqhQVBZodEfBjIvhdVFvfZeyeGAX4Z-LcO0yAlPi6oznE_uuU756PwwOidc1SQ8EBu6AP7XqUrqJ6cmxiuOVXSxA64V7OEroZ86BE7o-OmLEgJCZVHGUEAo73xjZoRy6U_DDHx"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
+</div>
+<!-- Floating Decorative Element -->
+<div class="absolute -bottom-12 -left-12 p-8 bg-surface-container-lowest rounded-3xl shadow-[0_10px_40px_rgba(48,51,47,0.06)] border border-outline-variant/10 max-w-[240px]">
+<p class="text-tertiary font-medium italic mb-2">"Silence is the sleep that nourishes wisdom."</p>
+<p class="text-xs text-on-surface-variant uppercase tracking-widest font-bold">— Francis Bacon</p>
+</div>
+</div>
+</div>
+<!-- Bento Grid Section -->
+<div class="mt-32">
+<div class="flex flex-col mb-12">
+<h2 class="text-4xl font-bold tracking-tight text-on-surface mb-2">Curated Modalities</h2>
+<p class="text-on-surface-variant">Three pillars of intentional living.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Column 1 -->
+<div class="bg-surface-container-low p-8 rounded-3xl flex flex-col justify-between group hover:bg-surface-container transition-colors min-h-[400px]">
+<div>
+<span class="material-symbols-outlined text-4xl text-primary mb-6" data-icon="self_improvement">self_improvement</span>
+<h3 class="text-2xl font-bold mb-4">Mindful Practice</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Daily meditations and breathwork sequences designed to ground your nervous system in under ten minutes.</p>
+</div>
+<a class="inline-flex items-center text-primary font-bold mt-6 group-hover:translate-x-2 transition-transform" href="#">
+                        View Library <span class="material-symbols-outlined ml-2">arrow_forward</span>
+</a>
+</div>
+<!-- Column 2 (Taller/Impact) -->
+<div class="bg-primary text-on-primary p-8 rounded-3xl flex flex-col justify-between min-h-[400px] relative overflow-hidden shadow-xl">
+<div class="absolute top-0 right-0 p-8 opacity-20">
+<span class="material-symbols-outlined text-9xl" data-icon="tempest">storm</span>
+</div>
+<div class="relative z-10">
+<h3 class="text-3xl font-bold mb-4 leading-tight">The Journal <br/> of Intent</h3>
+<p class="text-on-primary/80 text-sm leading-relaxed max-w-[200px]">Our weekly editorial exploring the intersection of modern science and ancient quiet.</p>
+</div>
+<div class="relative z-10">
+<button class="bg-on-primary text-primary px-6 py-3 rounded-full text-sm font-bold">Latest Edition</button>
+</div>
+</div>
+<!-- Column 3 -->
+<div class="bg-surface-container-low p-8 rounded-3xl flex flex-col justify-between group hover:bg-surface-container transition-colors min-h-[400px]">
+<div>
+<span class="material-symbols-outlined text-4xl text-primary mb-6" data-icon="psychology">psychology</span>
+<h3 class="text-2xl font-bold mb-4">Cognitive Flow</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Interactive focus exercises that leverage game mechanics to improve neuroplasticity and calm.</p>
+</div>
+<a class="inline-flex items-center text-primary font-bold mt-6 group-hover:translate-x-2 transition-transform" href="#">
+                        Start Focus <span class="material-symbols-outlined ml-2">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Tonal Nesting Section -->
+<div class="mt-24 p-12 bg-surface-container rounded-[3rem] relative overflow-hidden">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div>
+<h2 class="text-3xl font-bold mb-6 text-on-surface">Community Sanctuary</h2>
+<p class="text-on-surface-variant mb-8 leading-relaxed">Join 12,000+ others who are reclaiming their digital boundaries. Access exclusive circles, live guided sessions, and collaborative growth logs.</p>
+<div class="flex items-center gap-[-12px]">
+<img class="w-12 h-12 rounded-full border-4 border-surface-container object-cover" data-alt="profile of woman" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDD14hSYIkvwUk0KPI9kfccs4I555KtmTaBroOkwfNkHf4HdfmQMAV-5WNHHIZq0XJvEhdnlAOoNM3PeZdnaCKh4uBzDyxowUqjQEXPbuPq5tjcIA61m9eKfAubPWkfL8eTbl4Ykddj0jX7Y7pXQpMYVingrTK4vr1MhuHf-GtbnQchB9vRnWvIR367il52plISNl8hpF5ntTJfOt2Bfn4jxbdNONk-O2wzz2L4sQBhZfYcL37mAZ5XFTEMuo1Cdb2eZSJVnbgkf-EY"/>
+<img class="w-12 h-12 rounded-full border-4 border-surface-container object-cover -ml-4" data-alt="profile of man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8QnFyms1FESS7itN00Y_XQPPu3kHXwHqcF2JNpuyURZy_3H0SZLwt7TnVFQ_sxmFyzhf0aNhI5F-8frelvbF9sMI8aqIXY32OkQqCEdLwtv00-nqcMsnEpL8rxBvz8w5kYmOQ0RMoQetipYjSN9E3Omhxq3SOtKUARJBryNOcjpBc_QokFRmFK3KbECPKJ90zwu719_yjtve0ovOY9-sq9MnRzlI3PHBqj0JBUvjOPPugSDHF-Far3x_H1-rDi4Fxg4IExtsVggKl"/>
+<img class="w-12 h-12 rounded-full border-4 border-surface-container object-cover -ml-4" data-alt="profile of person" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCubC-kv_IQkjNLBaTJ4dxzxVy9BR850qBzK984ynVFbpXOLqN6zSluzbgjvD94SxQRwGelK05bausp83Ih9mhLXtvjiAu5zpoHQRAwP2LSIoKm9UTdyhLa6wdStlrqQOPgIOachR4AjfbogqoHf6L5A4MLzTU7PNOqAMFksaYKC9-yAt7r806MdbFIpLmP4VVnJCZhXRmT4GRcVS1ir8idifEAMUG191H8QCkzgGD_drqdWkeraaWBGaSxePuqNbheNNBuGRk8uhWO"/>
+<div class="w-12 h-12 rounded-full border-4 border-surface-container bg-surface-container-highest flex items-center justify-center -ml-4">
+<span class="text-xs font-bold text-on-surface-variant">+12k</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-3xl shadow-[0_10px_40px_rgba(48,51,47,0.06)]">
+<div class="flex items-center justify-between mb-6">
+<h4 class="font-bold">Next Live Session</h4>
+<span class="text-primary font-bold text-sm">Today, 6:00 PM</span>
+</div>
+<div class="flex gap-4 items-center p-4 bg-surface-container-low rounded-2xl mb-4">
+<div class="w-12 h-12 bg-primary-container rounded-full flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">waves</span>
+</div>
+<div>
+<p class="font-bold text-sm">Deep Breathing &amp; Release</p>
+<p class="text-xs text-on-surface-variant">Led by Dr. Aris Thorne</p>
+</div>
+</div>
+<button class="w-full py-4 bg-secondary text-on-secondary rounded-full font-bold hover:opacity-90 transition-opacity">Reserve My Seat</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer (Subtle) -->
+<footer class="max-w-7xl mx-auto px-8 py-12 text-center border-t border-outline-variant/5">
+<p class="text-sm text-on-surface-variant font-medium">© 2024 Editorial Sanctuary. Breathe deeply, live intentionally.</p>
+</footer>
+</main>
+</body></html>
