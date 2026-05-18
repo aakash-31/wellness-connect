@@ -163,12 +163,13 @@ Start the Vite development server:
 npm run dev
 ```
 
-### 4. Database Seeding (Optional)
-To populate your local database with therapists and sample posts:
+### 4. Database Seeding (Local & Production)
+To populate your database with therapists and sample posts:
 ```bash
 cd backend
 node seed.js
 ```
+*Note: This script seeds data to the `MONGO_URI` currently defined in your `backend/.env` file. To seed your live production database, temporarily replace your local `MONGO_URI` with your MongoDB Atlas connection string, run the script, and then change it back.*
 
 ---
 
