@@ -141,7 +141,7 @@ Create a `.env` file in the `/backend` directory:
 NODE_ENV=development
 PORT=5000
 MONGO_URI=mongodb://127.0.0.1:27017/wellness-connect
-JWT_SECRET=your_super_secret_jwt_key_here
+JWT_SECRET=insert secret key here
 ```
 Start the backend development server:
 ```bash
