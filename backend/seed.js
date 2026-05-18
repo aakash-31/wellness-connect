@@ -41,6 +41,26 @@ const therapistsData = [
     description: 'A holistic approach to mental health, combining traditional psychiatry with modern wellness practices.',
     imageUrl: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=2070&auto=format&fit=crop',
     coordinates: { lat: 19.1136, lng: 72.8697 }
+  },
+  {
+    name: 'Dr. Rohan Desai',
+    title: 'Cognitive Behavioral Therapist',
+    specialty: ['Stress Management', 'CBT', 'Anger Management'],
+    rating: 4.7,
+    distanceInfo: 'Juhu, Mumbai',
+    description: 'Specializing in evidence-based treatments to help individuals overcome daily stress and anxiety.',
+    imageUrl: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=2000&auto=format&fit=crop',
+    coordinates: { lat: 19.1075, lng: 72.8263 }
+  },
+  {
+    name: 'Neha Kapoor, MSW',
+    title: 'Licensed Clinical Social Worker',
+    specialty: ['Grief Counseling', 'Trauma', 'Child & Adolescent'],
+    rating: 4.9,
+    distanceInfo: 'Powai, Mumbai',
+    description: 'Providing a safe space for healing, processing grief, and navigating difficult life transitions.',
+    imageUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=2000&auto=format&fit=crop',
+    coordinates: { lat: 19.1176, lng: 72.9060 }
   }
 ];
 
