@@ -10,7 +10,7 @@ const Journal = require('./models/Journal');
 
 dotenv.config();
 
-// ─── Therapists ────────────────────────────────────────────────────────────
+// Therapists
 const therapistsData = [
   {
     name: 'Dr. Ananya Sharma',
@@ -64,7 +64,7 @@ const therapistsData = [
   }
 ];
 
-// ─── Community Posts ────────────────────────────────────────────────────────
+// Community Posts 
 const postsData = [
   {
     title: 'Small victories in a long week',
@@ -83,7 +83,7 @@ const postsData = [
   }
 ];
 
-// ─── Demo User Journal Entries ──────────────────────────────────────────────
+// Demo User Journal Entries 
 const journalData = [
   {
     title: 'First day using Sanctuary',
@@ -102,7 +102,7 @@ const journalData = [
   }
 ];
 
-// ─── Seeder ─────────────────────────────────────────────────────────────────
+//Seeder 
 const importData = async () => {
   try {
     await connectDB();
@@ -145,12 +145,10 @@ const importData = async () => {
     );
 
     console.log('');
-    console.log('✅ Data Imported Successfully!');
-    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-    console.log('🔑 Demo Login Credentials:');
-    console.log('   Email   : demo@wellnessconnect.com');
-    console.log('   Password: demo123');
-    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+    console.log('Data Imported Successfully!');
+    console.log('Demo Login Credentials:');
+    console.log('Email: demo@wellnessconnect.com');
+    console.log('Password: demo123');
     process.exit();
   } catch (error) {
     console.error('Error importing data:', error);
