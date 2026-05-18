@@ -1,156 +1,205 @@
-# 🌿 Wellness Connect
+<div align="center">
+  <img src="https://img.icons8.com/color/96/000000/leaf.png" alt="Wellness Connect Logo"/>
+  <h1>Wellness Connect</h1>
+  <p><i>A full-stack mental wellness platform for community connection, mindful journaling, and therapeutic resources.</i></p>
+  
+  <p>
+    <a href="https://wellness-connect-topaz.vercel.app/"><img src="https://img.shields.io/badge/Live_Demo-Available-success?style=for-the-badge&logo=vercel" alt="Live Demo" /></a>
+    <img src="https://img.shields.io/badge/React-19.2-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React" />
+    <img src="https://img.shields.io/badge/Node.js-Express-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node" />
+    <img src="https://img.shields.io/badge/MongoDB-Atlas-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
+    <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" alt="License" />
+  </p>
+</div>
 
-A full-stack MERN mental wellness platform where users can explore therapy resources, share in an anonymous community, maintain a private journal, and practice interactive mindfulness exercises.
+<br />
 
-> **Live Demo:** https://wellness-connect-topaz.vercel.app/
-> **Built as a portfolio project** — fully functional, production-ready architecture.
+## Overview
+
+**Wellness Connect** is a responsive, production-ready MERN stack application designed to support mental well-being. It provides users with a safe, authenticated environment to share experiences in an anonymous community, maintain a private mood-tracking journal, practice guided mindfulness, and locate professional therapists via interactive maps.
+
+Built with a focus on **security**, **performance**, and **user experience**, this project showcases modern full-stack development practices including RESTful API design, robust authentication, state management, and responsive UI/UX.
 
 ---
 
-## 🔑 Demo Credentials
+## Live Demo & Access
 
-> Use these to explore all authenticated features instantly — no sign-up needed.
+> **Production Application:** [https://wellness-connect-topaz.vercel.app/](https://wellness-connect-topaz.vercel.app/)
 
-| Field | Value |
-|---|---|
+To instantly explore authenticated features without creating an account, you can use the pre-seeded demo credentials:
+
+| Field | Demo Credentials |
+| :--- | :--- |
 | **Email** | `demo@wellnessconnect.com` |
 | **Password** | `demo123` |
 
-> The demo account comes pre-loaded with journal entries and community posts so the app looks fully populated.
+*Note: The demo account is pre-populated with sample journal entries and community posts.*
 
 ---
 
-## ✨ Features
+## Key Features
 
-| Feature | Description |
-|---|---|
-| 🔐 **JWT Authentication** | Secure register/login with bcrypt password hashing and 30-day tokens |
-| 💬 **Community Feed** | Reddit-style posts with like/unlike toggle, category filters, sort by Recent or Trending |
-| 📖 **Private Journal** | Authenticated, user-isolated journal entries with mood tagging |
-| 🩺 **Therapist Directory** | Searchable & filterable directory with real-time debounced queries |
-| ⚙️ **Account Settings** | Update username, email, password, or permanently delete account |
-| 🌬️ **Breathing Visualizer** | Animated 4-7-8 breathing exercise with session timer and cycle counter |
-| 🧠 **Mood Check-In** | 5-question self-assessment with personalized wellness recommendations |
-| 📱 **Fully Responsive** | Mobile-first design with hamburger nav, works on all screen sizes |
-| 🚫 **404 Page** | Branded Not Found page for invalid routes |
+### Secure Authentication & Authorization
+- Robust JWT-based authentication with 30-day token expiration.
+- Password hashing utilizing `bcryptjs` (salt rounds: 10).
+- Protected API routes and protected React routes preventing unauthorized access.
+- Secure HTTP headers and rate-limiting using `helmet` and `express-rate-limit`.
+
+### Interactive Community Feed
+- Reddit-style anonymous community discussion board.
+- Dynamic filtering by categories (e.g., Anxiety, Motivation, General).
+- Real-time sorting by 'Recent' or 'Trending' (based on engagement).
+- Like/Unlike functionality for posts.
+
+### Private Journaling & Mood Tracking
+- Secure, user-isolated journaling system.
+- Daily mood logging with dynamic visual tags.
+- Full CRUD capabilities for journal entries.
+
+### Mindfulness & Self-Assessment
+- **Breathing Visualizer:** Interactive 4-7-8 breathing exercise with CSS-driven animations, cycle counters, and session timers.
+- **Mood Check-In:** 5-question cognitive self-assessment generating personalized wellness insights.
+
+### Therapist Locator
+- Searchable directory of mental health professionals.
+- Real-time debounced search queries for optimized API usage.
+- Integrated mapping via `leaflet` and `react-leaflet`.
+
+### Modern UI/UX
+- Responsive, mobile-first design built with **Tailwind CSS**.
+- Accessible navigation, comprehensive error handling, and customized 404 pages.
+- Global toast notifications for user actions.
 
 ---
 
-## 🛠️ Tech Stack
+## Technology Stack
 
-**Frontend**
-- React 18 + Vite
-- React Router v6
-- Axios (with JWT interceptors)
-- Tailwind CSS (custom design tokens)
+### Frontend Architecture
+- **Framework:** React 19 + Vite for rapid development and optimized builds.
+- **Routing:** React Router v7.
+- **Styling:** Tailwind CSS with custom design tokens.
+- **Data Fetching:** Axios with global request/response interceptors for JWT injection.
+- **Mapping:** Leaflet & React-Leaflet.
 
-**Backend**
-- Node.js + Express.js
-- MongoDB + Mongoose
-- JSON Web Tokens (jsonwebtoken)
-- bcryptjs
+### Backend Architecture
+- **Runtime:** Node.js.
+- **Framework:** Express 5 (with native async error handling).
+- **Database:** MongoDB with Mongoose ODM.
+- **Security:** Helmet, Express Rate Limit, CORS.
+- **Logging:** Morgan.
+- **Auth:** JSON Web Tokens (jsonwebtoken).
 
 ---
 
-## 🚀 Getting Started
+## Project Structure
+
+```text
+wellness-connect/
+├── backend/
+│   ├── controllers/      # Business logic & route handlers
+│   ├── middleware/       # Custom Express middlewares (Auth, Error Handling)
+│   ├── models/           # Mongoose schemas (User, Post, Journal, Therapist)
+│   ├── routes/           # RESTful API route definitions
+│   ├── seed.js           # Database population script
+│   └── server.js         # Application entry point
+│
+└── frontend/
+    ├── src/
+    │   ├── api/          # Axios configurations and interceptors
+    │   ├── components/   # Reusable UI components (Navbar, ProtectedRoute)
+    │   ├── context/      # React Contexts (Auth, UI State)
+    │   ├── pages/        # Route components
+    │   └── App.jsx       # Root component and router configuration
+    ├── package.json
+    └── vite.config.js
+```
+
+---
+
+## Local Development Setup
+
+Follow these instructions to run the project locally.
 
 ### Prerequisites
-- Node.js v18+
-- MongoDB (local or Atlas)
+- [Node.js](https://nodejs.org/en/) (v18 or higher recommended)
+- [MongoDB](https://www.mongodb.com/) (Local instance or MongoDB Atlas cluster)
 
-### 1. Clone the repository
+### 1. Clone the Repository
 ```bash
 git clone https://github.com/YOUR_USERNAME/wellness-connect.git
 cd wellness-connect
 ```
 
-### 2. Backend setup
+### 2. Backend Setup
+Navigate to the backend directory, install dependencies, and configure environment variables.
 ```bash
 cd backend
 npm install
 ```
-
-Create a `.env` file in `/backend`:
+Create a `.env` file in the `/backend` directory:
 ```env
 NODE_ENV=development
 PORT=5000
 MONGO_URI=mongodb://127.0.0.1:27017/wellness-connect
-JWT_SECRET=your_super_secret_key_here
+JWT_SECRET=your_super_secret_jwt_key_here
 ```
-
-Start the backend:
+Start the backend development server:
 ```bash
 npm run dev
 ```
 
-### 3. Frontend setup
+### 3. Frontend Setup
+Open a new terminal, navigate to the frontend directory, install dependencies, and configure environment variables.
 ```bash
-cd ../frontend
+cd frontend
 npm install
+```
+Create a `.env` file in the `/frontend` directory:
+```env
+VITE_API_URL=http://localhost:5000/api
+```
+Start the Vite development server:
+```bash
 npm run dev
 ```
 
-### 4. Seed the database (optional)
+### 4. Database Seeding (Optional)
+To populate your local database with therapists and sample posts:
 ```bash
 cd backend
 node seed.js
 ```
-This populates therapists and sample community posts.
 
 ---
 
-## 🚀 Deployment
+## Security Measures Implemented
 
-### 1. Backend (e.g., Render, Railway)
-- Set `NODE_ENV` to `production`.
-- Set `MONGO_URI` to your MongoDB Atlas connection string.
-- Set `JWT_SECRET` to a strong, random string.
-- Set `PORT` (usually provided automatically by the host).
-
-### 2. Frontend (e.g., Vercel, Netlify)
-- Set `VITE_API_URL` to your deployed backend URL (e.g., `https://your-api.onrender.com/api`).
-- **Build Command**: `npm run build`
-- **Output Directory**: `dist`
+1. **Helmet.js**: Secures Express apps by setting various HTTP headers.
+2. **Rate Limiting**: Protects APIs against Brute-Force and DDoS attacks.
+3. **Data Sanitization**: Mongoose schemas enforce strict validation.
+4. **CORS Policy**: Configured to only allow requests from trusted frontend origins.
+5. **Authorization Verification**: Middleware explicitly checks database for user existence on every protected request, ensuring deleted/banned users instantly lose access even with valid tokens.
+6. **Resource Isolation**: Users can only modify or delete data that belongs to their `userId`.
 
 ---
 
-## 📁 Project Structure
+## Contributing
 
-```
-wellness-connect/
-├── backend/
-│   ├── controllers/     # Route handlers (user, post, journal, therapist)
-│   ├── middleware/      # JWT auth middleware
-│   ├── models/          # Mongoose schemas
-│   ├── routes/          # Express routers
-│   ├── seed.js          # Database seeder
-│   └── server.js        # Entry point
-│
-└── frontend/
-    └── src/
-        ├── api/         # Axios instance with auth interceptor
-        ├── components/  # Navbar, ProtectedRoute, BreathingExercise, MoodCheckIn
-        ├── context/     # AuthContext, ToastContext
-        └── pages/       # All page components
-```
+Contributions are welcome! If you have suggestions to improve the platform, please follow these steps:
+1. Fork the Project.
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`).
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`).
+4. Push to the Branch (`git push origin feature/AmazingFeature`).
+5. Open a Pull Request.
 
 ---
 
-## 🔒 Security
+## License
 
-- Passwords are hashed with **bcryptjs** (salt rounds: 10)
-- All sensitive routes require a **Bearer JWT token**
-- Users can only **delete their own posts/journals**
-- Auth middleware validates token **and** confirms user still exists in DB
+Distributed under the MIT License. Feel free to use this as a reference, portfolio piece, or starting point for your own projects.
 
 ---
 
-## 📸 Screenshots
-
-> _Add screenshots here after deployment_
-
----
-
-## 📄 License
-
-MIT — feel free to use this as a reference or starting point for your own projects.
+<div align="center">
+  <p>Built with care for mental well-being.</p>
+</div>
