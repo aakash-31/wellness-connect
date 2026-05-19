@@ -13,7 +13,7 @@ dotenv.config();
 // Therapists
 const therapistsData = [
   {
-    name: 'Dr. Ananya Sharma',
+    name: 'Dr. Ananya Kapoor',
     title: 'Clinical Psychologist',
     specialty: ['Anxiety', 'CBT', 'Mindfulness'],
     rating: 4.9,
@@ -23,7 +23,7 @@ const therapistsData = [
     coordinates: { lat: 18.9220, lng: 72.8347 }
   },
   {
-    name: 'Abhishek Gour, LMFT',
+    name: 'Abhishek Sharma, LMFT',
     title: 'Marriage & Family Therapist',
     specialty: ['Relationship', 'Trauma', 'Generational Patterns'],
     rating: 5.0,
@@ -33,7 +33,7 @@ const therapistsData = [
     coordinates: { lat: 19.0596, lng: 72.8295 }
   },
   {
-    name: 'Dr. Priya Iyer',
+    name: 'Dr. Priya Jain',
     title: 'Integrative Psychiatrist',
     specialty: ['Depression', 'Bipolar Disorder', 'Medication Management'],
     rating: 4.8,
@@ -53,7 +53,7 @@ const therapistsData = [
     coordinates: { lat: 19.1075, lng: 72.8263 }
   },
   {
-    name: 'Neha Kapoor, MSW',
+    name: 'Neha Singh, MSW',
     title: 'Licensed Clinical Social Worker',
     specialty: ['Grief Counseling', 'Trauma', 'Child & Adolescent'],
     rating: 4.9,
