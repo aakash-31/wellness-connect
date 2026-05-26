@@ -4,7 +4,7 @@ const postSchema = new mongoose.Schema({
   author: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
-    required: true // Required for Reddit-style pseudonymity
+    required: true // Required for Reddit-style pseudonymity    
   },
   title: {
     type: String,
@@ -22,7 +22,7 @@ const postSchema = new mongoose.Schema({
   likes: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'User'
+      ref: 'User'  //require fot the user based like one user cannot like multiple times
     }
   ]
 }, { timestamps: true });
