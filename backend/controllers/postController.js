@@ -59,7 +59,6 @@ const likePost = async (req, res) => {
     } else {
       post.likes.push(req.user._id);
     }
-
     await post.save();
     res.status(200).json({ likes: post.likes });
   } catch (error) {
