@@ -22,18 +22,7 @@ const chatWithCompanion = async (req, res) => {
     }
 
     const genAI = getGeminiClient();
-    const model = genAI.getGenerativeModel({
-      model: 'gemini-2.5-flash',
-      systemInstruction: `You are Sanctuary's empathetic, supportive, and active-listening AI Wellness Companion. 
-Your goal is to provide a safe, compassionate, and non-judgmental space for users to express feelings, share their daily struggles, or request mindfulness activities. 
-Guidelines:
-1. Be extremely warm, gentle, and validating. Acknowledge and name their feelings.
-2. Keep responses brief, highly conversational, and easy to read. Use bullet points or short paragraphs.
-3. Suggest simple, grounding exercises (e.g., box breathing, 5-4-3-2-1 technique, short visualizations) if the user is anxious or stressed.
-4. Never diagnose medical conditions or give clinical treatment advice. Explicitly recommend seeking professional care if they express severe distress or self-harm (gently and caringly).
-5. Always address the user directly and empathetically.`
-    });
-
+    
     // Filter history to ensure it starts with a user message (Gemini API requirement)
     const firstUserIndex = (history || []).findIndex((msg) => msg.role === 'user');
     const filteredHistory = firstUserIndex !== -1 ? (history || []).slice(firstUserIndex) : [];
@@ -44,13 +33,47 @@ Guidelines:
       parts: [{ text: msg.content || msg.text || '' }]
     }));
 
-    const chat = model.startChat({
-      history: formattedHistory
-    });
+    const systemInstruction = `You are Sanctuary's empathetic, supportive, and active-listening AI Wellness Companion. 
+Your goal is to provide a safe, compassionate, and non-judgmental space for users to express feelings, share their daily struggles, or request mindfulness activities. 
+Guidelines:
+1. Be extremely warm, gentle, and validating. Acknowledge and name their feelings.
+2. Keep responses brief, highly conversational, and easy to read. Use bullet points or short paragraphs.
+3. Suggest simple, grounding exercises (e.g., box breathing, 5-4-3-2-1 technique, short visualizations) if the user is anxious or stressed.
+4. Never diagnose medical conditions or give clinical treatment advice. Explicitly recommend seeking professional care if they express severe distress or self-harm (gently and caringly).
+5. Always address the user directly and empathetically.`;
 
-    const result = await chat.sendMessage(message);
-    const response = await result.response;
-    const responseText = response.text();
+    const candidateModels = ['gemini-2.5-flash', 'gemini-2.5-flash-lite', 'gemini-3.5-flash', 'gemini-3.1-flash-lite'];
+    let lastError;
+    let responseText;
+
+    for (const modelName of candidateModels) {
+      try {
+        const model = genAI.getGenerativeModel({
+          model: modelName,
+          systemInstruction
+        });
+
+        const chat = model.startChat({
+          history: formattedHistory
+        });
+
+        const result = await chat.sendMessage(message);
+        const response = await result.response;
+        responseText = response.text();
+
+        if (responseText) {
+          console.log(`Successfully generated chat response using model: ${modelName}`);
+          break;
+        }
+      } catch (err) {
+        console.warn(`Failed chat generation with model ${modelName}:`, err.message || err);
+        lastError = err;
+      }
+    }
+
+    if (!responseText) {
+      throw lastError || new Error('All candidate models failed to respond.');
+    }
 
     res.status(200).json({
       role: 'assistant',
@@ -83,13 +106,6 @@ const analyzeJournal = async (req, res) => {
     }
 
     const genAI = getGeminiClient();
-    // Using gemini-2.5-flash with application/json response type
-    const model = genAI.getGenerativeModel({
-      model: 'gemini-2.5-flash',
-      generationConfig: {
-        responseMimeType: 'application/json'
-      }
-    });
 
     const prompt = `You are a supportive, warm, and professional mental health AI companion.
 Analyze the following private journal entry:
@@ -107,9 +123,36 @@ Provide your emotional analysis strictly in the following JSON format:
 }
 `;
 
-    const result = await model.generateContent(prompt);
-    const response = await result.response;
-    const responseText = response.text();
+    const candidateModels = ['gemini-2.5-flash', 'gemini-2.5-flash-lite', 'gemini-3.5-flash', 'gemini-3.1-flash-lite'];
+    let lastError;
+    let responseText;
+
+    for (const modelName of candidateModels) {
+      try {
+        const model = genAI.getGenerativeModel({
+          model: modelName,
+          generationConfig: {
+            responseMimeType: 'application/json'
+          }
+        });
+
+        const result = await model.generateContent(prompt);
+        const response = await result.response;
+        responseText = response.text();
+
+        if (responseText) {
+          console.log(`Successfully generated journal analysis using model: ${modelName}`);
+          break;
+        }
+      } catch (err) {
+        console.warn(`Failed journal analysis with model ${modelName}:`, err.message || err);
+        lastError = err;
+      }
+    }
+
+    if (!responseText) {
+      throw lastError || new Error('All candidate models failed to analyze the journal.');
+    }
 
     let aiAnalysis;
     try {
