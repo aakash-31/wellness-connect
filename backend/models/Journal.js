@@ -18,7 +18,22 @@ const journalSchema = new mongoose.Schema({
     type: String,
     enum: ['Happy', 'Sad', 'Anxious', 'Calm', 'Reflective', 'Neutral'],
     default: 'Neutral'
+  },
+  aiAnalysis: {
+    sentiment: {
+      type: String
+    },
+    summary: {
+      type: String
+    },
+    copingTips: {
+      type: [String]
+    },
+    encouragement: {
+      type: String
+    }
   }
 }, { timestamps: true });
 
 module.exports = mongoose.model('Journal', journalSchema);
+

@@ -45,6 +45,7 @@ app.use('/api/users', require('./routes/userRoutes'));
 app.use('/api/posts', require('./routes/postRoutes'));
 app.use('/api/therapists', require('./routes/therapistRoutes'));
 app.use('/api/journals', require('./routes/journalRoutes'));
+app.use('/api/ai', require('./routes/aiRoutes'));
 
 // Error Handling
 app.use(notFound);

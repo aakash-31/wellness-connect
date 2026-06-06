@@ -7,6 +7,7 @@ const NAV_LINKS = [
   { label: 'Community', to: '/community', icon: 'groups' },
   { label: 'Wellness Tools', to: '/games', icon: 'self_improvement' },
   { label: 'Journal', to: '/journal', icon: 'edit_note' },
+  { label: 'AI Companion', to: '/ai-companion', icon: 'smart_toy' },
 ];
 
 const Navbar = () => {

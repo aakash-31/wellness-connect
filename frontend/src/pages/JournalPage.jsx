@@ -13,6 +13,7 @@ const JournalPage = () => {
   const [newMood, setNewMood] = useState('Neutral');
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState('');
+  const [analyzingIds, setAnalyzingIds] = useState({});
 
   useEffect(() => {
     fetchJournals();
@@ -57,7 +58,22 @@ const JournalPage = () => {
       setJournals(journals.filter((j) => j._id !== id));
       toast('Entry deleted.', 'info');
     } catch (err) {
+      console.error(err);
       toast('Failed to delete entry.', 'error');
+    }
+  };
+
+  const handleAnalyzeJournal = async (id) => {
+    setAnalyzingIds((prev) => ({ ...prev, [id]: true }));
+    try {
+      const { data } = await api.post(`/ai/analyze/${id}`);
+      setJournals((prev) => prev.map((j) => (j._id === id ? data : j)));
+      toast('AI Journal Insights generated! ✨', 'success');
+    } catch (err) {
+      console.error(err);
+      toast(err.response?.data?.message || 'Failed to analyze journal entry.', 'error');
+    } finally {
+      setAnalyzingIds((prev) => ({ ...prev, [id]: false }));
     }
   };
 
@@ -181,7 +197,65 @@ const JournalPage = () => {
                      </span>
                    </div>
                    
-                   <p className="text-on-surface-variant leading-relaxed whitespace-pre-wrap">{journal.content}</p>
+                   <p className="text-on-surface-variant leading-relaxed whitespace-pre-wrap mb-4">{journal.content}</p>
+
+                   {/* AI Insights Section */}
+                   {journal.aiAnalysis ? (
+                     <div className="mt-5 pt-5 border-t border-outline-variant/15 space-y-4 bg-surface-container-low/20 p-4 rounded-2xl border border-outline-variant/10">
+                       <div className="flex items-center justify-between">
+                         <div className="flex items-center gap-2">
+                           <span className="material-symbols-outlined text-primary text-[20px]">auto_awesome</span>
+                           <h4 className="text-sm font-bold text-primary">AI Wellness Insights</h4>
+                         </div>
+                         <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-primary/10 text-primary uppercase tracking-wider">
+                           Sentiment: {journal.aiAnalysis.sentiment}
+                         </span>
+                       </div>
+                       
+                       <p className="text-xs text-on-surface-variant font-medium leading-relaxed italic bg-surface-container-lowest/80 p-3.5 rounded-xl border border-outline-variant/10 shadow-sm">
+                         "{journal.aiAnalysis.summary}"
+                       </p>
+                       
+                       <div className="space-y-2">
+                         <h5 className="text-[11px] font-extrabold text-on-surface-variant/80 uppercase tracking-widest pl-1">Suggested Coping Strategies</h5>
+                         <ul className="grid grid-cols-1 gap-2">
+                           {journal.aiAnalysis.copingTips && journal.aiAnalysis.copingTips.map((tip, idx) => (
+                             <li key={idx} className="flex items-start gap-2.5 text-xs text-on-surface-variant font-medium bg-surface-container-lowest p-3 rounded-xl border border-outline-variant/10 shadow-sm hover:translate-x-0.5 transition-transform">
+                               <span className="material-symbols-outlined text-primary text-[16px] mt-0.5">check_circle</span>
+                               <span className="leading-snug">{tip}</span>
+                             </li>
+                           ))}
+                         </ul>
+                       </div>
+                       
+                       {journal.aiAnalysis.encouragement && (
+                         <div className="bg-primary/5 p-3 rounded-xl border border-primary/5 text-xs italic text-on-primary-fixed-variant flex items-start gap-2">
+                           <span className="material-symbols-outlined text-primary text-[16px] shrink-0">format_quote</span>
+                           <p className="leading-relaxed font-semibold">"{journal.aiAnalysis.encouragement}"</p>
+                         </div>
+                       )}
+                     </div>
+                   ) : (
+                     <div className="mt-4 pt-4 border-t border-outline-variant/15 flex justify-end">
+                       <button
+                         onClick={() => handleAnalyzeJournal(journal._id)}
+                         disabled={analyzingIds[journal._id]}
+                         className="bg-primary hover:bg-primary-dim text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-all flex items-center gap-1.5 shadow-md active:scale-95 disabled:opacity-60"
+                       >
+                         {analyzingIds[journal._id] ? (
+                           <>
+                             <span className="material-symbols-outlined animate-spin text-[16px]">progress_activity</span>
+                             Analyzing with AI...
+                           </>
+                         ) : (
+                           <>
+                             <span className="material-symbols-outlined text-[16px]">auto_awesome</span>
+                             Get AI Insights
+                           </>
+                         )}
+                       </button>
+                     </div>
+                   )}
                    
                    <button 
                      onClick={() => handleDeleteJournal(journal._id)}

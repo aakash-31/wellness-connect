@@ -13,6 +13,7 @@ import JournalPage from './pages/JournalPage';
 import SettingsPage from './pages/SettingsPage';
 import NotFoundPage from './pages/NotFoundPage';
 import ProtectedRoute from './components/ProtectedRoute';
+import AiCompanionPage from './pages/AiCompanionPage';
 
 const Layout = () => {
   return (
@@ -37,6 +38,7 @@ const App = () => {
           <Route path="games" element={<GamesPage />} />
           <Route path="login" element={<AuthPage />} />
           <Route path="journal" element={<ProtectedRoute><JournalPage /></ProtectedRoute>} />
+          <Route path="ai-companion" element={<ProtectedRoute><AiCompanionPage /></ProtectedRoute>} />
           <Route path="settings" element={<ProtectedRoute><SettingsPage /></ProtectedRoute>} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
