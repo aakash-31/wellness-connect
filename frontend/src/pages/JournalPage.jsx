@@ -200,7 +200,7 @@ const JournalPage = () => {
                    <p className="text-on-surface-variant leading-relaxed whitespace-pre-wrap mb-4">{journal.content}</p>
 
                    {/* AI Insights Section */}
-                   {journal.aiAnalysis ? (
+                   {journal.aiAnalysis && journal.aiAnalysis.summary ? (
                      <div className="mt-5 pt-5 border-t border-outline-variant/15 space-y-4 bg-surface-container-low/20 p-4 rounded-2xl border border-outline-variant/10">
                        <div className="flex items-center justify-between">
                          <div className="flex items-center gap-2">
@@ -208,7 +208,7 @@ const JournalPage = () => {
                            <h4 className="text-sm font-bold text-primary">AI Wellness Insights</h4>
                          </div>
                          <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-primary/10 text-primary uppercase tracking-wider">
-                           Sentiment: {journal.aiAnalysis.sentiment}
+                           Sentiment: {journal.aiAnalysis.sentiment || 'Reflective'}
                          </span>
                        </div>
                        

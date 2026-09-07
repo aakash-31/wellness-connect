@@ -20,18 +20,14 @@ const journalSchema = new mongoose.Schema({
     default: 'Neutral'
   },
   aiAnalysis: {
-    sentiment: {
-      type: String
+    type: {
+      sentiment: String,
+      summary: String,
+      copingTips: [String],
+      encouragement: String
     },
-    summary: {
-      type: String
-    },
-    copingTips: {
-      type: [String]
-    },
-    encouragement: {
-      type: String
-    }
+    default: null,
+    _id: false
   }
 }, { timestamps: true });
 
