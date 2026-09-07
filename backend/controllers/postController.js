@@ -1,4 +1,5 @@
 const Post = require('../models/Post');
+const { moderateContent } = require('../services/moderationService');
 
 // @desc    Get posts
 // @route   GET /api/posts
@@ -19,15 +20,27 @@ const getPosts = async (req, res) => {
 // @access  Public
 const createPost = async (req, res) => {
   try {
-    if (!req.body.title || !req.body.content) {
+    const { title, content, category } = req.body;
+
+    if (!title || !content) {
       return res.status(400).json({ message: 'Title and content are required' });
+    }
+
+    // Run AI content moderation screening before saving to DB
+    const moderation = await moderateContent(title, content);
+    if (moderation.flagged) {
+      return res.status(422).json({
+        message: `Post blocked by AI Safety Shield: ${moderation.reason}`,
+        reason: moderation.reason,
+        isModerated: true
+      });
     }
 
     const post = await Post.create({
       author: req.user._id,
-      title: req.body.title,
-      content: req.body.content,
-      category: req.body.category || 'General',
+      title,
+      content,
+      category: category || 'General',
     });
     
     // Populate author so frontend receives username immediately

@@ -122,11 +122,18 @@ const CommunityPage = () => {
               ))}
             </nav>
           </div>
-          <div className="bg-tertiary-container p-6 rounded-xl">
-            <h4 className="text-on-tertiary-container font-bold mb-2">Safe Space Policy</h4>
+          <div className="bg-tertiary-container p-6 rounded-xl space-y-3">
+            <div className="flex items-center gap-2">
+              <span className="material-symbols-outlined text-primary text-xl">verified_user</span>
+              <h4 className="text-on-tertiary-container font-bold">Safe Space Policy</h4>
+            </div>
             <p className="text-on-tertiary-container/80 text-sm leading-relaxed">
               Every voice here is valued. Please lead with kindness and respect the shared journey of others.
             </p>
+            <div className="flex items-center gap-2 pt-2 border-t border-on-tertiary-container/10 text-xs font-semibold text-primary">
+              <span className="material-symbols-outlined text-sm">shield</span>
+              AI Safety Shield Active
+            </div>
           </div>
         </aside>
 
@@ -149,7 +156,15 @@ const CommunityPage = () => {
               </div>
             ) : (
               <form onSubmit={handleCreatePost} className="space-y-4">
-                {submitError && <div className="text-error text-sm">{submitError}</div>}
+                {submitError && (
+                  <div className="p-4 bg-error-container text-on-error-container rounded-xl flex items-start gap-3 border border-error/20">
+                    <span className="material-symbols-outlined text-error flex-shrink-0 text-xl mt-0.5">gpp_maybe</span>
+                    <div className="text-sm">
+                      <p className="font-bold text-error mb-0.5">Content Moderation Notice</p>
+                      <p className="text-on-error-container/90 leading-relaxed">{submitError}</p>
+                    </div>
+                  </div>
+                )}
                 <input
                   type="text" placeholder="Title of your post..." required
                   value={newTitle} onChange={(e) => setNewTitle(e.target.value)}
